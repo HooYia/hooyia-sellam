@@ -1,6 +1,6 @@
 # 🚀 Welcome to Hooyia Sellam: React Developer Workshop
 
-Welcome to **Hooyia Sellam** (호이야 셀람), our company-wide hands-on learning project! This repository has been initialized with our core tech stack, build tools, and configuration baselines. 
+Welcome to **Hooyia Sellam** our company-wide hands-on learning project! This repository has been initialized with our core tech stack, build tools, and configuration baselines. 
 
 The primary goal of this project is **not just to build an application, but to provide an absolute, code-driven learning environment for mastering modern React**. By working together on a practical, feature-rich e-commerce engine, every developer in the company will get direct experience handling state, component design patterns, client-side routing, and modern CSS architectures.
 

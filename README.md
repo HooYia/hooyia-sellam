@@ -60,7 +60,7 @@ Follow these quick commands to spin up the codebase on your local machine:
 
 
 1. **Clone & Install Dependencies**
-First, clone the repository down to your working directory and execute a clean package install[cite:1]:
+First, clone the repository down to your working directory and execute a clean package install:
 
 ```
 # Clone the repository (replace with your accurate SSH/HTTPS URI)
@@ -85,40 +85,40 @@ Once executed, look at your terminal output and cmd-click/open the local loopbac
 To prevent formatting discrepancies and ensure beautiful git diffs, we have bundled Prettier directly into our dependencies. Please make sure your code editor (e.g., VS Code) is configured to Format on Save utilizing the workspace's .prettierrc parameters.
 
 ## 🗺️ Developer Roadmap & Feature Assignments
-To keep the collaborative process smooth, the Hooyia Sellam platform has been split into independent operational milestones. Teams and individuals can pick up tasks matching these distinct milestones[cite: 1]:
+To keep the collaborative process smooth, the Hooyia Sellam platform has been split into independent operational milestones. Teams and individuals can pick up tasks matching these distinct milestones:
 
 **🧱 Phase 1:** Foundations & Layout Shells
-The Shared Layout: Building out the MainLayout shell incorporating a responsive Navbar (complete with a real-time reactive cart icon badge) and a global Footer[cite: 1].
+The Shared Layout: Building out the MainLayout shell incorporating a responsive Navbar (complete with a real-time reactive cart icon badge) and a global Footer.
 
-Static Assets & Setup: Injecting brand materials into /assets and establishing basic theme layouts[cite: 1].
+Static Assets & Setup: Injecting brand materials into /assets and establishing basic theme layouts.
 
 **🍱 Phase 2:** Product Catalogs & Component Assembly
-The Product Card: Drafting a beautiful, accessible product showcase card utilizing Tailwind CSS and lucide-react status nodes[cite: 1].
+The Product Card: Drafting a beautiful, accessible product showcase card utilizing Tailwind CSS and lucide-react status nodes.
 
-The Grid Shelf: Building a dynamic product display grid on the Home page that reads and maps from a standard mock data configuration payload[cite: 1].
+The Grid Shelf: Building a dynamic product display grid on the Home page that reads and maps from a standard mock data configuration payload.
 
 **🌊 Phase 3:** Global State (The Shopping Cart Engine)
-Context Setup: Generating the global React Context layer within src/context/CartContext.jsx[cite: 1].
+Context Setup: Generating the global React Context layer within src/context/CartContext.jsx.
 
-State Reducers/Hooks: Exposing reactive functions to standard elements globally: addToCart(), removeFromCart(), updateQuantity(), and a computed cartTotal[cite: 1].
+State Reducers/Hooks: Exposing reactive functions to standard elements globally: addToCart(), removeFromCart(), updateQuantity(), and a computed cartTotal.
 
-The Dynamic Drawer/Page: Connecting the Cart page directly to this context to review, add, or clear item entries in real-time[cite: 1].
+The Dynamic Drawer/Page: Connecting the Cart page directly to this context to review, add, or clear item entries in real-time.
 
 **🧭 Phase 4:** Dynamic Client-Side Routing
-Route Binding: Constructing dynamic router paths inside App.jsx mapping custom routes (e.g., /product/:id)[cite: 1].
+Route Binding: Constructing dynamic router paths inside App.jsx mapping custom routes (e.g., /product/:id).
 
-Navigation Triggers: Replacing static HTML anchor items with react-router-dom's <Link> and useNavigate controllers to ensure zero page-refresh performance[cite: 1].
+Navigation Triggers: Replacing static HTML anchor items with react-router-dom's <Link> and useNavigate controllers to ensure zero page-refresh performance.
 
 ## 🤝 Collaboration Guidelines
 
-1. **Feature Branches**: Never commit anything directly to the main production branch[cite: 1]. Always cut a descriptive feature branch off of the latest upstream code[cite: 1]:
+1. **Feature Branches**: Never commit anything directly to the main production branch. Always cut a descriptive feature branch off of the latest upstream code:
 
 ```
 git checkout -b feature/your-name/feature-description
 ```
 
-2. **Atomic Commits:** Keep your commits descriptive, small, and isolated to the specific UI block or hook logic you are tackling[cite: 1].
-3. **Pull Request Peer Reviews:** When your feature is polished, open a Pull Request (PR) against the main branch[cite: 1]. Let's use this as an active arena to comment on clean code patterns, ask architectural questions, and learn from one another's solutions[cite: 1]!
+2. **Atomic Commits:** Keep your commits descriptive, small, and isolated to the specific UI block or hook logic you are tackling.
+3. **Pull Request Peer Reviews:** When your feature is polished, open a Pull Request (PR) against the main branch. Let's use this as an active arena to comment on clean code patterns, ask architectural questions, and learn from one another's solutions!
 
 ***
 

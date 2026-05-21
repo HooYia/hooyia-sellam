@@ -20,6 +20,7 @@ function TypedHeadline() {
       ? typedText.slice(primaryPhrase.length).trimStart()
       : ''
   const isTypingAccent = typedLength > primaryPhrase.length
+  const isTypingComplete = typedLength >= headline.length
 
   useEffect(() => {
     if (typedLength >= headline.length) {
@@ -44,11 +45,15 @@ function TypedHeadline() {
     <h1 className="w-full max-w-[82rem] text-center text-[clamp(2.1rem,4.35vw,4.9rem)] font-black leading-[1.02] tracking-normal drop-shadow-[0_18px_40px_rgba(8,145,178,0.2)]">
       <span className="block whitespace-nowrap text-secondary">
         {primaryText}
-        {!isTypingAccent && <span className="typing-cursor" aria-hidden="true" />}
+        {!isTypingAccent && !isTypingComplete && (
+          <span className="typing-cursor" aria-hidden="true" />
+        )}
       </span>
       <span className="block whitespace-nowrap text-primary">
         {accentText}
-        {isTypingAccent && <span className="typing-cursor" aria-hidden="true" />}
+        {isTypingAccent && !isTypingComplete && (
+          <span className="typing-cursor" aria-hidden="true" />
+        )}
       </span>
     </h1>
   )

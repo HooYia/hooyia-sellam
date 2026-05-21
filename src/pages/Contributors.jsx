@@ -41,12 +41,12 @@ function TypedHeadline() {
   }, [typedLength])
 
   return (
-    <h1 className="w-full max-w-[82rem] text-center text-[clamp(2.1rem,4.35vw,4.9rem)] font-black leading-[1.02] tracking-normal drop-shadow-[0_18px_40px_rgba(14,165,233,0.2)]">
-      <span className="block whitespace-nowrap text-slate-950">
+    <h1 className="w-full max-w-[82rem] text-center text-[clamp(2.1rem,4.35vw,4.9rem)] font-black leading-[1.02] tracking-normal drop-shadow-[0_18px_40px_rgba(8,145,178,0.2)]">
+      <span className="block whitespace-nowrap text-secondary">
         {primaryText}
         {!isTypingAccent && <span className="typing-cursor" aria-hidden="true" />}
       </span>
-      <span className="block whitespace-nowrap text-cyan-700">
+      <span className="block whitespace-nowrap text-primary">
         {accentText}
         {isTypingAccent && <span className="typing-cursor" aria-hidden="true" />}
       </span>
@@ -66,7 +66,7 @@ function ContributorAvatar({ contributor, isRevealed, onReveal, onSelect }) {
       onFocus={onReveal}
       onClick={onSelect}
     >
-      <span className="relative grid h-[6.35rem] w-[6.35rem] place-items-center rounded-full border-[3px] border-cyan-700 bg-white shadow-[0_18px_36px_rgba(15,23,42,0.16)] transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_22px_42px_rgba(8,145,178,0.22)]">
+      <span className="relative grid h-[6.35rem] w-[6.35rem] place-items-center rounded-full border-[3px] border-primary bg-background-primary shadow-[0_18px_36px_rgba(2,6,23,0.16)] transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_22px_42px_rgba(8,145,178,0.22)]">
         <img
           src={`${githubUrl}.png`}
           alt={`${contributor.name} GitHub avatar`}
@@ -75,10 +75,10 @@ function ContributorAvatar({ contributor, isRevealed, onReveal, onSelect }) {
           }`}
         />
       </span>
-      <strong className="mt-4 max-w-36 text-lg font-black leading-tight text-slate-950 transition group-hover:text-cyan-700">
+      <strong className="mt-4 max-w-36 text-lg font-black leading-tight text-secondary transition group-hover:text-primary">
         {contributor.name}
       </strong>
-      <span className="mt-1 max-w-32 text-sm font-semibold text-slate-600">
+      <span className="mt-1 max-w-32 text-sm font-semibold text-muted">
         {contributor.role || 'Contributor'}
       </span>
     </button>
@@ -100,15 +100,15 @@ export default function Contributors() {
   }
 
   return (
-    <main className="min-h-screen overflow-hidden bg-slate-50 text-slate-950">
-      <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(180deg,#f8fdff_0%,#eefbff_52%,#ffffff_100%)]">
-        <div className="absolute left-1/2 top-[45%] h-[42rem] w-[62rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-300/65 blur-[150px]" />
-        <div className="absolute left-1/2 top-[62%] h-[32rem] w-[46rem] -translate-x-1/2 rounded-full bg-blue-300/35 blur-[170px]" />
-        <div className="absolute left-[-8rem] top-[35%] h-72 w-96 bg-cyan-200/45 blur-[130px]" />
+    <main className="min-h-screen overflow-hidden bg-background text-secondary">
+      <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(180deg,var(--color-background)_0%,var(--color-background-secondary)_52%,var(--color-background-primary)_100%)]">
+        <div className="absolute left-1/2 top-[45%] h-[42rem] w-[62rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-accent/65 blur-[150px]" />
+        <div className="absolute left-1/2 top-[62%] h-[32rem] w-[46rem] -translate-x-1/2 rounded-full bg-primary/35 blur-[170px]" />
+        <div className="absolute left-[-8rem] top-[35%] h-72 w-96 bg-secondary-accent/45 blur-[130px]" />
 
         <nav className="relative z-10 flex min-h-24 items-center justify-between px-5 py-6 text-base font-black md:min-h-28 md:px-10">
           <a href="/" className="flex items-center gap-4 tracking-tight">
-            <span className="grid h-11 w-11 place-items-center rounded-full bg-slate-950 text-lg text-white shadow-[0_14px_34px_rgba(14,165,233,0.24)]">
+            <span className="grid h-11 w-11 place-items-center rounded-full bg-secondary text-lg text-primary-foreground shadow-[0_14px_34px_rgba(8,145,178,0.24)]">
               R
             </span>
             <span className="text-lg md:text-xl">React Workshop</span>
@@ -116,7 +116,7 @@ export default function Contributors() {
 
           <a
             href="#contributors"
-            className="rounded-full bg-slate-950 px-7 py-3 text-sm font-black text-white shadow-[0_18px_40px_rgba(14,165,233,0.25)] transition hover:bg-cyan-600 md:text-base"
+            className="rounded-full bg-secondary px-7 py-3 text-sm font-black text-primary-foreground shadow-[0_18px_40px_rgba(8,145,178,0.25)] transition hover:bg-primary-focus md:text-base"
           >
             Join
           </a>
@@ -125,7 +125,7 @@ export default function Contributors() {
         <div className="relative z-10 mx-auto flex min-h-[calc(100vh-9rem)] max-w-7xl flex-col items-center justify-center px-4 pb-14 pt-0 text-center">
           <TypedHeadline />
 
-          <p className="mt-6 max-w-2xl text-[clamp(1rem,1.4vw,1.22rem)] font-bold leading-snug text-slate-700">
+          <p className="mt-6 max-w-2xl text-[clamp(1rem,1.4vw,1.22rem)] font-bold leading-snug text-tertiary">
             Turn workshop ideas into real interfaces with code you understand.
           </p>
 
@@ -147,15 +147,15 @@ export default function Contributors() {
             ))}
           </div>
 
-          <p className="mt-8 max-w-xl text-sm font-bold text-slate-500">
-            Add your details in <span className="text-slate-900">contributors.json</span> and your profile appears here.
+          <p className="mt-8 max-w-xl text-sm font-bold text-muted">
+            Add your details in <span className="text-secondary">contributors.json</span> and your profile appears here.
           </p>
         </div>
       </section>
 
       <style>{`
         @keyframes workshopCaret {
-          0%, 44% { border-color: rgba(8, 145, 178, 0.9); }
+          0%, 44% { border-color: var(--color-primary); }
           45%, 100% { border-color: transparent; }
         }
 
@@ -164,7 +164,7 @@ export default function Contributors() {
           height: 0.8em;
           margin-left: 0.08em;
           transform: translateY(0.08em);
-          border-right: 4px solid rgba(8, 145, 178, 0.9);
+          border-right: 4px solid var(--color-primary);
           animation: workshopCaret 0.78s step-end infinite;
         }
 

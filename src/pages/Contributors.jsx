@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import contributorsData from '../data/contributors.json'
+import BadgeModal from '../components/BadgeModal'
 
 const headline = 'Learn React, build real interfaces, use it with confidence'
 const primaryPhrase = 'Learn React, build real interfaces,'
@@ -53,18 +54,17 @@ function TypedHeadline() {
   )
 }
 
-function ContributorAvatar({ contributor, isRevealed, onReveal }) {
+function ContributorAvatar({ contributor, isRevealed, onReveal, onSelect }) {
   const githubUrl = `https://github.com/${contributor.githubUsername}`
 
   return (
-    <a
-      href={githubUrl}
-      target="_blank"
-      rel="noreferrer"
+    <button
+      type="button"
       className="group flex w-36 flex-col items-center text-center outline-none"
-      aria-label={`${contributor.name} on GitHub`}
+      aria-label={`Open ${contributor.name} workshop badge`}
       onMouseEnter={onReveal}
       onFocus={onReveal}
+      onClick={onSelect}
     >
       <span className="relative grid h-[6.35rem] w-[6.35rem] place-items-center rounded-full border-[3px] border-cyan-700 bg-white shadow-[0_18px_36px_rgba(15,23,42,0.16)] transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_22px_42px_rgba(8,145,178,0.22)]">
         <img
@@ -81,12 +81,13 @@ function ContributorAvatar({ contributor, isRevealed, onReveal }) {
       <span className="mt-1 max-w-32 text-sm font-semibold text-slate-600">
         {contributor.role || 'Contributor'}
       </span>
-    </a>
+    </button>
   )
 }
 
 export default function Contributors() {
   const [revealedProfiles, setRevealedProfiles] = useState(() => new Set())
+  const [selectedContributor, setSelectedContributor] = useState(null)
 
   function revealProfile(githubUsername) {
     setRevealedProfiles((current) => {
@@ -138,6 +139,10 @@ export default function Contributors() {
                 contributor={contributor}
                 isRevealed={revealedProfiles.has(contributor.githubUsername)}
                 onReveal={() => revealProfile(contributor.githubUsername)}
+                onSelect={() => {
+                  revealProfile(contributor.githubUsername)
+                  setSelectedContributor(contributor)
+                }}
               />
             ))}
           </div>
@@ -170,6 +175,13 @@ export default function Contributors() {
           }
         }
       `}</style>
+
+      {selectedContributor && (
+        <BadgeModal
+          contributor={selectedContributor}
+          onClose={() => setSelectedContributor(null)}
+        />
+      )}
     </main>
   )
 }

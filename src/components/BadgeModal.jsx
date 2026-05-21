@@ -141,7 +141,7 @@ function createBadgeTexture(contributor) {
 
     const avatarSize = 174
     const avatarX = 256
-    const avatarY = 226
+    const avatarY = 274
     ctx.save()
     ctx.beginPath()
     ctx.arc(avatarX, avatarY, avatarSize / 2 + 15, 0, Math.PI * 2)
@@ -181,33 +181,33 @@ function createBadgeTexture(contributor) {
     ctx.font = '900 58px Arial'
     ctx.textAlign = 'center'
     ctx.textBaseline = 'top'
-    drawWrappedText(ctx, contributor.name, 256, 344, 350, 55, 2)
+    drawWrappedText(ctx, contributor.name, 256, 392, 350, 55, 2)
 
     ctx.fillStyle = 'rgba(255,255,255,0.82)'
     ctx.font = '900 19px Arial'
-    ctx.fillText(role.toUpperCase(), 256, 486)
+    ctx.fillText(role.toUpperCase(), 256, 534)
 
     ctx.fillStyle = '#67e8f9'
-    ctx.fillRect(186, 534, 140, 7)
+    ctx.fillRect(186, 582, 140, 7)
     ctx.fillStyle = '#ec4899'
-    ctx.fillRect(326, 534, 64, 7)
+    ctx.fillRect(326, 582, 64, 7)
 
     ctx.fillStyle = '#facc15'
     ctx.beginPath()
-    ctx.roundRect(144, 598, 224, 54, 27)
+    ctx.roundRect(144, 646, 224, 54, 27)
     ctx.fill()
     ctx.fillStyle = '#020617'
     ctx.font = '900 18px Arial'
     ctx.textBaseline = 'middle'
-    ctx.fillText(favoriteTech.toUpperCase(), 256, 626)
+    ctx.fillText(favoriteTech.toUpperCase(), 256, 674)
 
     ctx.textAlign = 'left'
     ctx.fillStyle = '#475569'
     ctx.font = '700 25px Arial'
-    ctx.fillText('React Workshop', 76, 852)
+    ctx.fillText('React Workshop', 76, 902)
     ctx.font = '700 23px Arial'
-    ctx.fillText(`@${contributor.githubUsername}`, 76, 906)
-    ctx.fillText(githubUrl.replace('https://', ''), 76, 960)
+    ctx.fillText(`@${contributor.githubUsername}`, 76, 956)
+    ctx.fillText(githubUrl.replace('https://', ''), 76, 1010)
 
     const backGradient = ctx.createLinearGradient(back.x, 0, back.x + back.width, 900)
     backGradient.addColorStop(0, '#083344')
@@ -342,7 +342,7 @@ function Band({ contributor, maxSpeed = 50, minSpeed = 10 }) {
   ])
   useSphericalJoint(j3, card, [
     [0, 0, 0],
-    [-0.14, 1.12, 0],
+    [0, 1.34, -0.06],
   ])
 
   useEffect(() => {
@@ -426,28 +426,28 @@ function Band({ contributor, maxSpeed = 50, minSpeed = 10 }) {
 
   return (
     <>
-      <group position={[-0.88, 4.22, 0]}>
+      <group position={[-0.72, 4.52, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
-        <RigidBody position={[0.22, -0.18, 0]} ref={j1} {...segmentProps}>
+        <RigidBody position={[0.28, -0.2, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
-        <RigidBody position={[0.5, -0.38, 0]} ref={j2} {...segmentProps}>
+        <RigidBody position={[0.62, -0.42, 0]} ref={j2} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
-        <RigidBody position={[0.78, -0.56, 0]} ref={j3} {...segmentProps}>
+        <RigidBody position={[0.94, -0.64, 0]} ref={j3} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
 
         <RigidBody
           ref={card}
-          position={[1.0, -0.84, 0]}
+          position={[1.22, -0.98, 0]}
           {...segmentProps}
           type={dragged ? 'kinematicPosition' : 'dynamic'}
         >
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
             scale={2.32}
-            position={[0, -1.04, -0.05]}
+            position={[0, -1.22, 0.08]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
             onPointerDown={pointerDown}
@@ -478,7 +478,8 @@ function Band({ contributor, maxSpeed = 50, minSpeed = 10 }) {
         <meshLineGeometry />
         <meshLineMaterial
           color="white"
-          depthTest={false}
+          depthTest
+          depthWrite={false}
           lineWidth={0.72}
           map={texture}
           repeat={new THREE.Vector2(-3, 1)}
@@ -562,7 +563,6 @@ export default function BadgeModal({ contributor, developer, onClose }) {
 
       <div
         className="h-screen w-screen"
-        onClick={(event) => event.stopPropagation()}
       >
         <BadgeScene contributor={profile} />
       </div>

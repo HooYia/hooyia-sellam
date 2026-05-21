@@ -79,11 +79,17 @@ function createBadgeTexture(contributor) {
     frontGradient.addColorStop(0, '#020617')
     frontGradient.addColorStop(0.5, '#083344')
     frontGradient.addColorStop(1, '#0e7490')
-    ctx.fillStyle = frontGradient
-    ctx.fillRect(front.x, front.y, front.width, 720)
-
     ctx.fillStyle = '#ffffff'
-    ctx.fillRect(front.x, 720, front.width, 370)
+    ctx.fillRect(front.x, front.y, front.width, 1090)
+    ctx.fillStyle = frontGradient
+    ctx.beginPath()
+    ctx.moveTo(front.x, front.y)
+    ctx.lineTo(front.x + front.width, front.y)
+    ctx.lineTo(front.x + front.width, 610)
+    ctx.bezierCurveTo(front.x + 452, 800, front.x + 354, 862, front.x + 256, 862)
+    ctx.bezierCurveTo(front.x + 158, 862, front.x + 60, 800, front.x, 610)
+    ctx.closePath()
+    ctx.fill()
 
     ctx.save()
     ctx.beginPath()
@@ -133,7 +139,7 @@ function createBadgeTexture(contributor) {
     ctx.stroke()
     ctx.restore()
 
-    const avatarSize = 168
+    const avatarSize = 174
     const avatarX = 256
     const avatarY = 226
     ctx.save()
@@ -175,42 +181,49 @@ function createBadgeTexture(contributor) {
     ctx.font = '900 58px Arial'
     ctx.textAlign = 'center'
     ctx.textBaseline = 'top'
-    drawWrappedText(ctx, contributor.name, 256, 342, 350, 55, 2)
+    drawWrappedText(ctx, contributor.name, 256, 344, 350, 55, 2)
 
     ctx.fillStyle = 'rgba(255,255,255,0.82)'
     ctx.font = '900 19px Arial'
-    ctx.fillText(role.toUpperCase(), 256, 480)
+    ctx.fillText(role.toUpperCase(), 256, 486)
 
     ctx.fillStyle = '#67e8f9'
-    ctx.fillRect(186, 528, 140, 7)
+    ctx.fillRect(186, 534, 140, 7)
     ctx.fillStyle = '#ec4899'
-    ctx.fillRect(326, 528, 64, 7)
+    ctx.fillRect(326, 534, 64, 7)
 
     ctx.fillStyle = '#facc15'
     ctx.beginPath()
-    ctx.roundRect(144, 586, 224, 54, 27)
+    ctx.roundRect(144, 598, 224, 54, 27)
     ctx.fill()
     ctx.fillStyle = '#020617'
     ctx.font = '900 18px Arial'
     ctx.textBaseline = 'middle'
-    ctx.fillText(favoriteTech.toUpperCase(), 256, 614)
+    ctx.fillText(favoriteTech.toUpperCase(), 256, 626)
 
     ctx.textAlign = 'left'
     ctx.fillStyle = '#475569'
     ctx.font = '700 25px Arial'
-    ctx.fillText('React Workshop', 76, 824)
+    ctx.fillText('React Workshop', 76, 852)
     ctx.font = '700 23px Arial'
-    ctx.fillText(`@${contributor.githubUsername}`, 76, 878)
-    ctx.fillText(githubUrl.replace('https://', ''), 76, 932)
+    ctx.fillText(`@${contributor.githubUsername}`, 76, 906)
+    ctx.fillText(githubUrl.replace('https://', ''), 76, 960)
 
     const backGradient = ctx.createLinearGradient(back.x, 0, back.x + back.width, 900)
     backGradient.addColorStop(0, '#083344')
     backGradient.addColorStop(0.38, '#020617')
     backGradient.addColorStop(1, '#0e7490')
-    ctx.fillStyle = backGradient
-    ctx.fillRect(back.x, back.y, back.width, 720)
     ctx.fillStyle = '#ffffff'
-    ctx.fillRect(back.x, 720, back.width, 370)
+    ctx.fillRect(back.x, back.y, back.width, 1090)
+    ctx.fillStyle = backGradient
+    ctx.beginPath()
+    ctx.moveTo(back.x, back.y)
+    ctx.lineTo(back.x + back.width, back.y)
+    ctx.lineTo(back.x + back.width, 610)
+    ctx.bezierCurveTo(back.x + 452, 800, back.x + 354, 862, back.x + 256, 862)
+    ctx.bezierCurveTo(back.x + 158, 862, back.x + 60, 800, back.x, 610)
+    ctx.closePath()
+    ctx.fill()
 
     ctx.save()
     ctx.beginPath()
@@ -433,7 +446,7 @@ function Band({ contributor, maxSpeed = 50, minSpeed = 10 }) {
         >
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
-            scale={2.15}
+            scale={2.32}
             position={[0, -1.04, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}

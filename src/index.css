@@ -1,1 +1,92 @@
 @import "tailwindcss";
+
+
+font-face {
+    font-family: 'Inter';
+    src: url('/src/assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/src/assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/src/assets/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/src/assets/fonts/JetBrainsMono-Italic-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@theme {
+    --breakpoint-sm: 350px;
+
+    --color-base-black: #020617;
+    --color-base-white: hsla(0, 0%, 100%, 1); /* white */
+    --color-surface-primary: #f8fdff;
+    --color-surface-secondary: #eefbff;
+    --color-subtle: #e0f7ff;
+    --color-primary: #0891b2;
+    --color-primary-accent: #67e8f9;
+    --color-primary-foreground: hsla(0, 0%, 100%, 1); /* white */
+    --color-primary-focus: #0e7490;
+    --color-secondary: #020617; /* secondary */
+    --color-secondary-accent: #cffafe;
+    --color-tertiary: #0f172a; /* tertiary */
+    --color-muted: #64748b;
+    --color-accent: #06b6d4;
+    --color-feedback-success: #10b981;
+    --color-feedback-error: #ef4444;
+    --color-feedback-warning: #f59e0b;
+    --color-feedback-info: #06b6d4;
+    --color-stroke: #bae6fd;
+    --color-gray-light: #e0f2fe;
+    --color-input-fill: #fcfcfc;
+    --color-background: #f8fdff;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #eefbff;
+    --color-border: #bae6fd;
+
+    /* Adding specific semantic colors for permission states */
+    --color-perm-active: #10b981;
+    --color-perm-readonly: #3b82f6;
+    --color-perm-locked: #ef4444;
+    --color-perm-na: #737373;
+    --color-perm-warning: #EBC106;
+
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Inter', serif;
+    --font-mono: 'JetBrains Mono', serif;
+
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --text-xxs: 10px;
+
+    --navbar-height: 80px;
+
+    --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+    --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+    /* ===== [ADDITION] Sidebar width token ===== */
+    --sidebar-width: 232px;
+    /* ===== [END ADDITION] ===== */
+}

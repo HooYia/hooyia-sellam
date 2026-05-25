@@ -1,10 +1,16 @@
-import Contributors from './pages/Contributors';
-import './index.css';
-
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Cart from './pages/Cart'
+import Contributors from './pages/Contributors'
+import './index.css'
 
 function App() {
   return (
-    <Contributors />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/contributors" element={<Contributors />} />
+    </Routes>
   )
 }
 

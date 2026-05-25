@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import contributorsData from '../data/contributors.json'
 import BadgeModal from '../components/BadgeModal'
 
@@ -112,19 +113,35 @@ export default function Contributors() {
         <div className="absolute left-[-8rem] top-[35%] h-72 w-96 bg-secondary-accent/45 blur-[130px]" />
 
         <nav className="relative z-10 flex min-h-24 items-center justify-between px-5 py-6 text-base font-black md:min-h-28 md:px-10">
-          <a href="/" className="flex items-center gap-4 tracking-tight">
+          <Link to="/" className="flex items-center gap-4 tracking-tight">
             <span className="grid h-11 w-11 place-items-center rounded-full bg-secondary text-lg text-primary-foreground shadow-[0_14px_34px_rgba(8,145,178,0.24)]">
               R
             </span>
             <span className="text-lg md:text-xl">React Workshop</span>
-          </a>
+          </Link>
 
-          <a
-            href="#contributors"
-            className="rounded-full bg-secondary px-7 py-3 text-sm font-black text-primary-foreground shadow-[0_18px_40px_rgba(8,145,178,0.25)] transition hover:bg-primary-focus md:text-base"
-          >
-            Join
-          </a>
+          <div className="flex items-center gap-3">
+            <Link
+              to="/"
+              className="rounded-full border border-border bg-background-primary px-5 py-2 text-sm font-black text-secondary transition hover:border-primary hover:text-primary"
+            >
+              Home
+            </Link>
+
+            {/* <Link
+              to="/cart"
+              className="rounded-full border border-border bg-background-primary px-5 py-2 text-sm font-black text-secondary transition hover:border-primary hover:text-primary"
+            >
+              Cart
+            </Link> */}
+
+            <a
+              href="#contributors"
+              className="rounded-full bg-secondary px-6 py-2 text-sm font-black text-primary-foreground shadow-[0_18px_40px_rgba(8,145,178,0.25)] transition hover:bg-primary-focus"
+            >
+              Join
+            </a>
+          </div>
         </nav>
 
         <div className="relative z-10 mx-auto flex min-h-[calc(100vh-9rem)] max-w-7xl flex-col items-center justify-center px-4 pb-14 pt-0 text-center">

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import contributorsData from '../data/contributors.json'
 import BadgeModal from '../components/BadgeModal'
 
@@ -44,13 +43,13 @@ function TypedHeadline() {
 
   return (
     <h1 className="w-full max-w-[82rem] text-center text-[clamp(2.1rem,4.35vw,4.9rem)] font-black leading-[1.02] tracking-normal drop-shadow-[0_18px_40px_rgba(8,145,178,0.2)]">
-      <span className="block whitespace-nowrap text-secondary">
+      <span className="block text-secondary">
         {primaryText}
         {!isTypingAccent && !isTypingComplete && (
           <span className="typing-cursor" aria-hidden="true" />
         )}
       </span>
-      <span className="block whitespace-nowrap text-primary">
+      <span className="block text-primary">
         {accentText}
         {isTypingAccent && !isTypingComplete && (
           <span className="typing-cursor" aria-hidden="true" />
@@ -106,45 +105,13 @@ export default function Contributors() {
   }
 
   return (
-    <main className="min-h-screen overflow-hidden bg-background text-secondary">
+    <main className="mx-[calc(50%-50vw)] min-h-screen w-screen overflow-hidden bg-background text-secondary">
       <section className="relative min-h-screen overflow-hidden bg-[linear-gradient(180deg,var(--color-background)_0%,var(--color-background-secondary)_52%,var(--color-background-primary)_100%)]">
         <div className="absolute left-1/2 top-[45%] h-[42rem] w-[62rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-accent/65 blur-[150px]" />
         <div className="absolute left-1/2 top-[62%] h-[32rem] w-[46rem] -translate-x-1/2 rounded-full bg-primary/35 blur-[170px]" />
         <div className="absolute left-[-8rem] top-[35%] h-72 w-96 bg-secondary-accent/45 blur-[130px]" />
 
-        <nav className="relative z-10 flex min-h-24 items-center justify-between px-5 py-6 text-base font-black md:min-h-28 md:px-10">
-          <Link to="/" className="flex items-center gap-4 tracking-tight">
-            <span className="grid h-11 w-11 place-items-center rounded-full bg-secondary text-lg text-primary-foreground shadow-[0_14px_34px_rgba(8,145,178,0.24)]">
-              R
-            </span>
-            <span className="text-lg md:text-xl">React Workshop</span>
-          </Link>
-
-          <div className="flex items-center gap-3">
-            <Link
-              to="/"
-              className="rounded-full border border-border bg-background-primary px-5 py-2 text-sm font-black text-secondary transition hover:border-primary hover:text-primary"
-            >
-              Home
-            </Link>
-
-            {/* <Link
-              to="/cart"
-              className="rounded-full border border-border bg-background-primary px-5 py-2 text-sm font-black text-secondary transition hover:border-primary hover:text-primary"
-            >
-              Cart
-            </Link> */}
-
-            <a
-              href="#contributors"
-              className="rounded-full bg-secondary px-6 py-2 text-sm font-black text-primary-foreground shadow-[0_18px_40px_rgba(8,145,178,0.25)] transition hover:bg-primary-focus"
-            >
-              Join
-            </a>
-          </div>
-        </nav>
-
-        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-9rem)] max-w-7xl flex-col items-center justify-center px-4 pb-14 pt-0 text-center">
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-[90rem] flex-col items-center justify-center px-5 py-16 text-center">
           <TypedHeadline />
 
           <p className="mt-6 max-w-2xl text-[clamp(1rem,1.4vw,1.22rem)] font-bold leading-snug text-tertiary">
@@ -153,7 +120,7 @@ export default function Contributors() {
 
           <div
             id="contributors"
-            className="mt-11 flex w-screen flex-wrap items-start justify-center gap-x-10 gap-y-10 px-5 py-6"
+            className="mt-11 flex w-full flex-wrap items-start justify-center gap-x-10 gap-y-10 px-5 py-6"
           >
             {contributorsData.map((contributor) => (
               <ContributorAvatar
@@ -168,10 +135,6 @@ export default function Contributors() {
               />
             ))}
           </div>
-
-          <p className="mt-8 max-w-xl text-sm font-bold text-muted">
-            Add your details in <span className="text-secondary">contributors.json</span> and your profile appears here.
-          </p>
         </div>
       </section>
 

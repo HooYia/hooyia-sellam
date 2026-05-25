@@ -11,9 +11,17 @@
     "role": "Contributor",
     "favoriteTech": "React"
   },
+
   {
     "name": "Ndongmo Christian",
     "githubUsername": "ndongchrist",
+    "role": "Contributor",
+    "favoriteTech": "Django/React"
+  },
+   
+  {
+    "name": "Talla Bolivent",
+    "githubUsername": "ktbm12",
     "role": "Contributor",
     "favoriteTech": "Django/React"
   }
